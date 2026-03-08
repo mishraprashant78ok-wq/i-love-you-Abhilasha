@@ -1,0 +1,315 @@
+ <!DOCTYPE html>
+<html>
+<head>
+
+<title>I Love You Laddu ❤️</title>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+font-family:Arial;
+color:white;
+text-align:center;
+
+background: radial-gradient(circle,
+#ff4d88 0%,
+#ff1a66 40%,
+#cc0052 70%,
+#660033 100%);
+}
+
+/* MESSAGE */
+
+.message{
+position:absolute;
+top:5%;
+left:50%;
+transform:translateX(-50%);
+background:rgba(0,0,0,0.55);
+padding:30px;
+border-radius:20px;
+width:65%;
+box-shadow:0 0 40px pink;
+z-index:10;
+}
+
+h1{
+font-size:45px;
+color:#ffd6e7;
+text-shadow:0 0 20px pink;
+}
+
+p{
+font-size:20px;
+line-height:1.6;
+}
+
+/* VIDEO */
+
+.videoBox{
+position:absolute;
+top:58%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:5;
+}
+
+video{
+width:520px;
+border-radius:20px;
+border:5px solid pink;
+box-shadow:0 0 40px pink;
+}
+
+/* LOVE METER */
+
+.meter{
+position:absolute;
+top:32%;
+left:50%;
+transform:translateX(-50%);
+width:320px;
+height:25px;
+background:#ee1c88;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 15px rgb(231, 60, 89);
+}
+
+.fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#ff66a3,#ff0066);
+animation:loveFill 6s forwards;
+}
+
+@keyframes loveFill{
+0%{width:0%}
+100%{width:100%}
+}
+
+/* FLOATING PHOTOS */
+
+.photo{
+position:absolute;
+width:120px;
+border-radius:15px;
+box-shadow:0 0 20px pink;
+animation:float 15s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(120vh) rotate(0deg)}
+100%{transform:translateY(-150vh) rotate(360deg)}
+}
+
+/* LOVE TEXT */
+
+.love{
+position:absolute;
+font-size:22px;
+color:#ffb3d9;
+text-shadow:0 0 10px pink;
+animation:rain 7s linear infinite;
+}
+
+@keyframes rain{
+0%{transform:translateY(-10vh)}
+100%{transform:translateY(110vh)}
+}
+
+/* ROSE PETALS */
+
+.petal{
+position:absolute;
+font-size:25px;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh)}
+100%{transform:translateY(110vh)}
+}
+
+/* SPARKLES */
+
+.sparkle{
+position:absolute;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 10px white;
+animation:spark 5s linear infinite;
+}
+
+@keyframes spark{
+0%{opacity:0;transform:translateY(0)}
+50%{opacity:1}
+100%{opacity:0;transform:translateY(-200px)}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="message">
+
+<h1>Laddu Will You Mine...❤️</h1>
+
+<p>
+
+Laddu ❤️
+
+You are the most beautiful part of my life.
+
+Every moment with you becomes a memory I never want to lose.
+
+You are my happiness, my comfort, my best friend and the love of my life.
+
+No matter where life takes us, my heart will always belong to you.
+
+The day I met you Laddu, on 5th November will always hold a very special place in my heart.
+
+That beautiful moment felt like a miracle, the beginning of something truly magical.
+
+I Love You Forever ❤️
+
+</p>
+
+</div>
+
+<div class="meter">
+<div class="fill"></div>
+</div>
+
+<!-- SONG -->
+
+<audio autoplay loop>
+<source src="m-a-r-_one_taylor-swift-love-story.mp3" type="audio/mpeg">
+</audio>
+
+<!-- VIDEO -->
+
+<div class="videoBox">
+<video id="player" autoplay muted></video>
+</div>
+
+<script>
+
+/* VIDEOS */
+
+const videos=[
+"video1.mp4",
+"video2.mp4",
+"video3.mp4",
+"video4.mp4",
+"video5.mp4"
+]
+
+let index=0
+const player=document.getElementById("player")
+
+function playVideo(){
+player.src=videos[index]
+player.play()
+}
+
+player.onended=function(){
+index++
+if(index>=videos.length){index=0}
+playVideo()
+}
+
+playVideo()
+
+/* PHOTOS */
+
+const photos=[
+"photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg",
+"photo6.jpg","photo7.jpg","photo8.jpg","photo9.jpg","photo10.jpg",
+"photo11.jpg","photo12.jpg","photo13.jpg","photo14.jpg","photo15.jpg",
+"photo16.jpg","photo17.jpg","photo18.jpg","photo19.jpg","photo20.jpg"
+]
+
+function createPhoto(){
+
+let img=document.createElement("img")
+img.src=photos[Math.floor(Math.random()*photos.length)]
+img.className="photo"
+img.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(img)
+
+setTimeout(()=>{
+img.remove()
+},15000)
+
+}
+
+setInterval(createPhoto,350)
+
+/* LOVE TEXT */
+
+function loveRain(){
+
+let txt=document.createElement("div")
+txt.className="love"
+txt.innerHTML="I LOVE YOU LADDU ❤️"
+txt.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(txt)
+
+setTimeout(()=>{
+txt.remove()
+},7000)
+
+}
+
+setInterval(loveRain,300)
+
+/* ROSE PETALS */
+
+function petal(){
+
+let p=document.createElement("div")
+p.className="petal"
+p.innerHTML="🌹"
+p.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(p)
+
+setTimeout(()=>{
+p.remove()
+},6000)
+
+}
+
+setInterval(petal,350)
+
+/* SPARKLES */
+
+function sparkle(){
+
+let s=document.createElement("div")
+s.className="sparkle"
+s.style.left=Math.random()*100+"vw"
+s.style.top=Math.random()*100+"vh"
+
+document.body.appendChild(s)
+
+setTimeout(()=>{
+s.remove()
+},5000)
+
+}
+
+setInterval(sparkle,150)
+
+</script>
+
+</body>
+</html>
